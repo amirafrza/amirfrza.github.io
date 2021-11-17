@@ -1,0 +1,45 @@
+<html>
+   <head>
+      <title>Latihan WebGIS</title>
+      <link rel = "stylesheet" href = "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+      <script src = "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+   </head>
+
+   <body>
+      <div id = "map" style = "width: 900px; height: 600px"></div>
+      <script>
+         // Membuat Map Options
+         var mapOptions = {
+            center: [-6.370032,106.831957],
+            zoom: 16
+         }
+         
+         // Membuat Map Object
+         var map = new L.map('map', mapOptions);
+         
+         // Membuat Layer
+         var layer = new L.TileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',{attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		});
+         
+         // Menampilkan layer pada peta
+         map.addLayer(layer);
+		 
+		 //Menampilkan Skala Peta
+		 
+		 var scale = L.control.scale();
+			scale.addTo(map);
+			
+		//Menambahkan marker
+		 var marker = L.marker({-6.3687659,106.8249134});
+		 
+		 //Menambahkan Pop-up
+		 marker.bindPopup('Gedung Departemen Geografi FMIPA UI').openPopup();
+		 
+		 //Menampilkan marker pada peta
+		 marker.addTo(map);
+		     
+     
+      </script>
+   </body>
+   
+</html>
